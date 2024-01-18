@@ -29,4 +29,14 @@ class SupportController extends Controller
 
         return redirect()->route('supports.index');
     }
+
+    public function show(string|int $id)
+    {
+        if (!$support = Support::find($id)) {
+            return back();
+        }
+
+        return view('admin/supports/show', compact('support'));
+    }
+
 }
