@@ -18,7 +18,7 @@ class SupportService
         return $this->repository->getAll($filter);
     }
 
-    public function getOne(string $id): stdClass|null
+    public function findOne(string $id): stdClass|null
     {
         return $this->repository->findOne($id);
     }
@@ -33,8 +33,8 @@ class SupportService
         return $this->repository->update($dto);
     }
 
-    public function delete(): void
+    public function delete(string $id): void
     {
-        $this->repository->delete();
+        $this->repository->delete($id);
     }
 }
