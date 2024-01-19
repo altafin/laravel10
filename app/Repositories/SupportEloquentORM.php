@@ -2,10 +2,11 @@
 
 namespace App\Repositories;
 
-use App\DTO\CreateSupportDTO;
-use App\DTO\UpdateSupportDTO;
+use App\DTO\Supports\CreateSupportDTO;
+use App\DTO\Supports\UpdateSupportDTO;
 use App\Models\Support;
 use stdClass;
+
 class SupportEloquentORM implements SupportRepositoryInterface
 {
     public function __construct(
