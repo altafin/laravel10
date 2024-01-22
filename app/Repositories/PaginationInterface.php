@@ -9,7 +9,7 @@ interface PaginationInterface
      */
     public function items(): array;
     public function total(): int;
-    public function isFirstpage(): bool;
+    public function isFirstPage(): bool;
     public function isLastPage(): bool;
     public function currenPage(): int;
     public function getNumberNextPage(): int;
