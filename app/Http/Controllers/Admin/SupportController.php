@@ -39,7 +39,9 @@ class SupportController extends Controller
         $this->service->new(
             CreateSupportDTO::makeFromRequest($request)
         );
-        return redirect()->route('supports.index');
+        return redirect()
+            ->route('supports.index')
+            ->with('message', 'Cadastrado com sucesso');
     }
 
     public function show(string $id)
@@ -70,7 +72,9 @@ class SupportController extends Controller
             return back();
         }
 
-        return redirect()->route('supports.index');
+        return redirect()
+            ->route('supports.index')
+            ->with('message', 'Atualizado com sucesso');
 
     }
 
