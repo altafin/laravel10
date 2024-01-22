@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Adapters\ApiAdapter;
 use App\DTO\Supports\CreateSupportDTO;
 use App\DTO\Supports\UpdateSupportDTO;
 use App\Http\Controllers\Controller;
@@ -27,17 +28,7 @@ class SupportController extends Controller
             totalPerPage: $request->get('per_page', 1),
             filter: $request->filter,
         );
-        return SupportResource::collection($supports->items())
-            ->additional([
-                'meta' =>[
-                    'total' => $supports->total(),
-                    'is_first_page' => $supports->isFirstPage(),
-                    'is_last_page' => $supports->isLastPage(),
-                    'current_page' => $supports->currenPage(),
-                    'next_page' => $supports->getNumberNextPage(),
-                    'previous_page' => $supports->getNumberPreviousPage(),
-                ]
-            ]);
+        return ApiAdapter::toJson($supports);
     }
 
     /**
